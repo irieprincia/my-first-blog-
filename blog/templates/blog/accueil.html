@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<!--<head>
+	<title>Mon premier blog</title>
+	<style type="text/css">
+		h1{color: blue;}
+		p{background-color: pink;}
+	</style>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+	<h1 class="text-center alert alert-primary">BIENVENUE SUR MON BLOG</h1>
+	<p class="button button-success">Hello, Welcome</p>
+	<button class="btn btn-success">click</button>
+</body>-->
+    <head>
+        <title>Django Girls blog</title>
+        <link href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container-fluid text-center">
+            <h1 class="alert alert-primary"><a href="">Django Girls Blog</a></h1>
+        </div>
+
+        <div class="container">
+            {% for Post in tous_les_postes %}
+            <div>
+            	
+            	<h2 style="color:orange">{{ Post.title }}</h2>
+            	<h6 class="text-right" style="color:purple; font-style:italic"> publié le {{ Post.published_date }}</h6>
+            	<p class="text-justify">{{ Post.text }}</p>
+            	<h6 class="text-right" style="color:red;font-style:bold">{{ Post.author }}</h6><br/>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </body>
+</html>
